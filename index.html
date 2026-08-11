@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Empire Idle</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <div class="topbar">
+    <div><div class="brand">🏢 Empire Idle</div><div class="sub">Build • Automate • Expand</div></div>
+    <button id="reset" class="reset" type="button">Reset</button>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="label">Cash</div><div id="cash" class="value">$600</div></div>
+    <div class="stat"><div class="label">Revenue</div><div id="revenue" class="value">$0</div></div>
+    <div class="stat"><div class="label">Work/sec</div><div id="speed" class="value">2.0</div></div>
+    <div class="stat"><div class="label">Tap</div><div id="tap" class="value">5</div></div>
+  </div>
+
+  <div class="main">
+    <div class="tabs">
+      <button id="landTab" class="tab active" type="button">🌱 Landscaping</button>
+      <button id="softTab" class="tab locked" type="button">💻 Software 🔒</button>
+    </div>
+
+    <div class="playArea">
+      <div class="leftPane">
+        <div class="world">
+          <div class="ground"></div>
+          <div id="a" class="entity" style="left:10%">🛻</div>
+          <div id="b" class="entity" style="left:46%">🧑‍🌾</div>
+          <div id="c" class="entity" style="right:10%">🏡</div>
+        </div>
+
+        <section class="card">
+          <div class="row">
+            <div><strong id="business">GreenLine Landscaping</strong><div id="desc" class="small muted">Short cash-cycle service business.</div></div>
+            <span id="badge" class="badge">Owner-Operator</span>
+          </div>
+          <div class="trackWrap"><div id="track" class="track"></div></div>
+          <div class="row small"><span id="stepLabel">🔎 Find Customer</span><span id="pct">0%</span></div>
+          <div class="barOuter"><div id="bar" class="bar" style="width:0%"></div></div>
+          <div id="economics" class="small muted"></div>
+          <button id="work" class="work" type="button">⚡ WORK FASTER</button>
+        </section>
+      </div>
+
+      <div class="rightPane">
+        <section class="card">
+          <strong>Business stats</strong>
+          <div class="miniGrid small">
+            <div><div class="muted">Waiting</div><b id="queue">0</b></div>
+            <div><div class="muted">Jobs / releases</div><b id="jobs">0</b></div>
+            <div><div class="muted">Employees</div><b id="employees">0</b></div>
+            <div><div class="muted">Automation</div><b id="automation">0%</b></div>
+          </div>
+          <div id="status" class="callout small">Buy an upgrade and its effect appears here.</div>
+        </section>
+
+        <section class="card upgradePanel">
+          <div><strong>Upgrades</strong><div class="small muted">Scroll only here.</div></div>
+          <div class="upgradeScroll"><div id="upgrades" class="upgradeGrid"></div></div>
+        </section>
+      </div>
+    </div>
+
+    <div class="bottom">
+      <section class="card"><strong class="small">Software unlock</strong><div id="unlock" class="small muted" style="margin-top:4px"></div></section>
+      <section class="card"><strong class="small">Idle note</strong><div class="small muted" style="margin-top:4px">Progress auto-saves every 3 seconds.</div></section>
+    </div>
+  </div>
+
+  <div id="eventLog" class="eventLog"></div>
+</div>
+<script src="game.js"></script>
+</body>
+</html>
