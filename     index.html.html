@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Empire Idle</title>
+<style>
+:root{--bg:#f5f1e8;--card:#fffaf0;--ink:#25231f;--muted:#6e695f;--line:#d9d0c1;--accent:#2f7d4a;--accent2:#dff0df;--shadow:0 8px 22px rgba(45,38,25,.08)}*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none}html,body{margin:0;width:100%;height:100%;overflow:hidden;overscroll-behavior:none;background:var(--bg);color:var(--ink);font-family:ui-rounded,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button{font:inherit;cursor:pointer;touch-action:manipulation;user-select:none;-webkit-user-select:none}#app{height:100dvh;max-height:100dvh;display:grid;grid-template-rows:auto auto 1fr auto;overflow:hidden;padding:max(8px,env(safe-area-inset-top)) 10px max(8px,env(safe-area-inset-bottom));gap:8px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:8px}.brand{font-weight:900;font-size:18px}.sub{font-size:11px;color:var(--muted)}.reset{border:1px solid var(--line);border-radius:12px;padding:8px 10px;background:var(--card);color:var(--ink)}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.stat{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:7px 8px;box-shadow:var(--shadow)}.stat .label{font-size:10px;color:var(--muted)}.stat .value{font-size:14px;font-weight:850;margin-top:1px}.main{min-height:0;display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:8px}.tabs{display:flex;gap:6px;flex-wrap:nowrap}.tab{flex:1;border:1px solid var(--line);border-radius:12px;padding:8px 9px;background:var(--card);color:var(--ink);font-size:12px}.tab.active{background:var(--accent);color:white}.tab.locked{opacity:.45}.playArea{min-height:0;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(220px,.75fr);gap:8px}.leftPane,.rightPane{min-height:0;display:grid;gap:8px}.leftPane{grid-template-rows:minmax(130px,.9fr) auto}.rightPane{grid-template-rows:auto minmax(0,1fr)}.world{position:relative;min-height:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#dff0fa;box-shadow:var(--shadow)}.ground{position:absolute;left:0;right:0;bottom:0;height:44%;background:#b7d99a;border-top:1px solid #8fb879}.entity{position:absolute;bottom:22px;font-size:38px}.card{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:10px;box-shadow:var(--shadow)}.row{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}.badge{background:var(--accent2);border:1px solid #b6d4b8;border-radius:999px;padding:4px 7px;font-size:10px;font-weight:750}.small{font-size:11px}.muted{color:var(--muted)}.trackWrap{overflow-x:auto;overflow-y:hidden;scrollbar-width:none;touch-action:pan-x}.trackWrap::-webkit-scrollbar{display:none}.track{display:flex;gap:5px;align-items:center;width:max-content;padding:2px 0}.step{border:1px solid var(--line);border-radius:10px;padding:6px 7px;background:#fff;text-align:center;min-width:67px;font-size:10px}.step.active{background:var(--accent2);border-color:var(--accent)}.step.auto{outline:2px dashed var(--accent)}.barOuter{height:11px;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:#eee8dd;margin:6px 0}.bar{height:100%;background:var(--accent);transition:width .08s linear}.work{width:100%;border:0;border-radius:15px;padding:13px;background:var(--accent);color:white;font-weight:900;font-size:16px;box-shadow:0 4px 0 #225d37;touch-action:none}.work:active{transform:translateY(2px);box-shadow:0 2px 0 #225d37}.miniGrid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:7px}.callout{background:#f1eadc;border:1px solid var(--line);padding:8px;border-radius:10px;margin-top:7px}.upgradePanel{min-height:0;overflow:hidden;display:grid;grid-template-rows:auto 1fr}.upgradeScroll{min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;touch-action:pan-y;padding-right:2px}.upgradeGrid{display:grid;grid-template-columns:1fr;gap:6px;padding-top:7px}.upgrade{width:100%;text-align:left;border:1px solid var(--line);border-radius:12px;padding:9px 10px;background:#fff;color:var(--ink);min-height:70px}.upgrade:active{transform:scale(.99)}.eventLog{position:fixed;left:50%;bottom:max(10px,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:30;pointer-events:none;max-width:min(92vw,520px);width:max-content}.toast{background:rgba(37,35,31,.92);color:white;border-radius:999px;padding:8px 12px;font-size:11px;animation:toast 1.7s forwards}@keyframes toast{0%{opacity:0;transform:translateY(8px)}15%{opacity:1;transform:none}80%{opacity:1}100%{opacity:0;transform:translateY(-6px)}}.bottom{display:grid;grid-template-columns:1fr 1fr;gap:6px}.bottom .card{padding:8px}@media(max-width:760px){.playArea{grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) auto}.rightPane{grid-template-columns:1fr 1fr;grid-template-rows:1fr}.upgradePanel{max-height:31dvh}.world{min-height:140px}}@media(max-width:520px){.stat{padding:6px}.stat .label{font-size:9px}.stat .value{font-size:12px}.brand{font-size:16px}.leftPane{grid-template-rows:minmax(118px,.8fr) auto}.rightPane{grid-template-columns:1fr 1fr}.card{padding:8px}.work{padding:12px;font-size:15px}.upgradePanel{max-height:29dvh}}
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="topbar">
+    <div><div class="brand">🏢 Empire Idle</div><div class="sub">Build • Automate • Expand</div></div>
+    <button id="reset" class="reset" type="button">Reset</button>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="label">Cash</div><div id="cash" class="value">$600</div></div>
+    <div class="stat"><div class="label">Revenue</div><div id="revenue" class="value">$0</div></div>
+    <div class="stat"><div class="label">Work/sec</div><div id="speed" class="value">2.0</div></div>
+    <div class="stat"><div class="label">Tap</div><div id="tap" class="value">5</div></div>
+  </div>
+
+  <div class="main">
+    <div class="tabs">
+      <button id="landTab" class="tab active" type="button">🌱 Landscaping</button>
+      <button id="softTab" class="tab locked" type="button">💻 Software 🔒</button>
+    </div>
+
+    <div class="playArea">
+      <div class="leftPane">
+        <div class="world">
+          <div class="ground"></div>
+          <div id="a" class="entity" style="left:10%">🛻</div>
+          <div id="b" class="entity" style="left:46%">🧑‍🌾</div>
+          <div id="c" class="entity" style="right:10%">🏡</div>
+        </div>
+
+        <section class="card">
+          <div class="row">
+            <div><strong id="business">GreenLine Landscaping</strong><div id="desc" class="small muted">Short cash-cycle service business.</div></div>
+            <span id="badge" class="badge">Owner-Operator</span>
+          </div>
+          <div class="trackWrap"><div id="track" class="track"></div></div>
+          <div class="row small"><span id="stepLabel">🔎 Find Customer</span><span id="pct">0%</span></div>
+          <div class="barOuter"><div id="bar" class="bar" style="width:0%"></div></div>
+          <div id="economics" class="small muted"></div>
+          <button id="work" class="work" type="button">⚡ WORK FASTER</button>
+        </section>
+      </div>
+
+      <div class="rightPane">
+        <section class="card">
+          <strong>Business stats</strong>
+          <div class="miniGrid small">
+            <div><div class="muted">Waiting</div><b id="queue">0</b></div>
+            <div><div class="muted">Jobs / releases</div><b id="jobs">0</b></div>
+            <div><div class="muted">Employees</div><b id="employees">0</b></div>
+            <div><div class="muted">Automation</div><b id="automation">0%</b></div>
+          </div>
+          <div id="status" class="callout small">Buy an upgrade and its effect appears here.</div>
+        </section>
+
+        <section class="card upgradePanel">
+          <div><strong>Upgrades</strong><div class="small muted">Scroll only here.</div></div>
+          <div class="upgradeScroll"><div id="upgrades" class="upgradeGrid"></div></div>
+        </section>
+      </div>
+    </div>
+
+    <div class="bottom">
+      <section class="card"><strong class="small">Software unlock</strong><div id="unlock" class="small muted" style="margin-top:4px"></div></section>
+      <section class="card"><strong class="small">Idle note</strong><div class="small muted" style="margin-top:4px">Progress auto-saves every 3 seconds.</div></section>
+    </div>
+  </div>
+
+  <div id="eventLog" class="eventLog"></div>
+</div>
+<script>
+const $=id=>document.getElementById(id), money=n=>'$'+Math.floor(n).toLocaleString();
+const fresh=()=>({started:false,active:'land',cash:600,revenue:0,land:{idx:0,p:0,queue:0,jobs:0,employees:0,tap:5,speed:2,value:95,u:{tools:0,ads:0,worker:0,scheduler:0,crew:0,premium:0}},soft:{unlocked:false,idx:0,p:0,customers:0,releases:0,employees:0,tap:8,speed:1.5,mrr:0,value:12,u:{dev:0,marketing:0,infra:0,onboard:0,pricing:0}}});
+let g;try{g=JSON.parse(localStorage.getItem('empireIdleSaveV4'))||fresh()}catch(e){g=fresh()}
+const landSteps=[{n:'Find Customer',i:'🔎',w:30,c:0},{n:'Travel',i:'🛻',w:18,c:4},{n:'Mow',i:'🌱',w:32,c:5},{n:'Trim',i:'✂️',w:18,c:2},{n:'Cleanup',i:'🧹',w:12,c:1},{n:'Payment',i:'💵',w:8,c:0}];
+const softSteps=[{n:'Develop',i:'🧑‍💻',w:100,cps:.5},{n:'Test',i:'🧪',w:45,cps:.25},{n:'Launch',i:'🚀',w:24,cps:.1},{n:'Market',i:'📢',w:55,flat:250},{n:'Convert',i:'👥',w:40,cps:.15},{n:'Subscribe',i:'💳',w:18,cps:.08}];
+function save(){localStorage.setItem('empireIdleSaveV4',JSON.stringify(g))}
+function toast(t){const h=$('eventLog');h.innerHTML='';const d=document.createElement('div');d.className='toast';d.textContent=t;h.appendChild(d);setTimeout(()=>d.remove(),1750)}
+function status(t){$('status').textContent=t}
+function landAuto(i){let u=g.land.u;return(i===0&&u.ads>0)||(i===1&&u.scheduler>0)||((i>=2&&i<=4)&&u.worker>0)||(i===5&&u.scheduler>0)}
+function softAuto(i){let u=g.soft.u;return(i<=1&&u.dev>0)||(i===3&&u.marketing>0)||(i>=4&&u.onboard>0)}
+function landAutomation(){let u=g.land.u;return Math.min(100,(u.ads?15:0)+(u.worker?30:0)+(u.scheduler?20:0)+Math.min(35,u.crew*15))}
+function softAutomation(){let u=g.soft.u;return Math.min(100,(u.dev?30:0)+(u.marketing?20:0)+(u.onboard?30:0)+Math.min(20,u.infra*5))}
+function finishLand(){let l=g.land,s=landSteps[l.idx];g.cash-=s.c||0;if(l.idx===0){l.queue++;toast('New landscaping customer booked')}if(l.idx===5){if(l.queue>0)l.queue--;g.cash+=l.value;g.revenue+=l.value;l.jobs++;toast('✅ +'+money(l.value))}l.idx=(l.idx+1)%landSteps.length;l.p=0;checkUnlock();rebuildProcess();save()}
+function finishSoft(){let s=g.soft,st=softSteps[s.idx];if(st.flat){g.cash-=st.flat;toast('Marketing spend -'+money(st.flat))}if(s.idx===2){s.releases++;toast('🚀 Software release shipped')}if(s.idx===4){let gained=5+s.u.marketing*4+Math.floor(Math.random()*6);s.customers+=gained;toast(gained+' customers converted')}if(s.idx===5){s.mrr=s.customers*s.value;toast('MRR '+money(s.mrr)+'/mo')}s.idx=(s.idx+1)%softSteps.length;s.p=0;rebuildProcess();save()}
+function mainAction(){if(!g.started){g.started=true;status('GreenLine Landscaping is open. Time is now moving the business automatically.');toast('🌱 Business started');save();updateLive();return}let b=g.active==='land'?g.land:g.soft,steps=g.active==='land'?landSteps:softSteps;b.p+=b.tap;if(b.p>=steps[b.idx].w)(g.active==='land'?finishLand():finishSoft());updateLive()}
+const baseLand={tools:350,ads:600,worker:1200,scheduler:1800,crew:3000,premium:900},baseSoft={dev:4000,marketing:3500,infra:2500,onboard:5000,pricing:2200};
+function cost(base,lvl,m=1.6){return Math.floor(base*Math.pow(m,lvl))}
+function buyLand(k){if(!g.started){toast('Start the business first');return}let l=g.land,c=cost(baseLand[k],l.u[k]);if(g.cash<c){toast('Not enough cash');return}g.cash-=c;l.u[k]++;if(k==='tools'){l.tap+=2;l.speed+=.5;status('Better Tools: tap +2, passive speed +0.5/sec.')}if(k==='ads'){l.speed+=.7;status('Local Ads: customer finding is now automated.')}if(k==='worker'){l.employees++;l.speed+=1.3;status('Landscaper: service work is now automated.')}if(k==='scheduler'){l.speed+=.8;status('Scheduling: travel and payment are now automated.')}if(k==='crew'){l.employees+=2;l.speed+=2.5;status('New Crew: +2 employees, +2.5 work/sec.')}if(k==='premium'){l.value+=30;status('Premium Service: every job pays $30 more.')}toast('Upgrade purchased');checkUnlock();buildUpgrades();rebuildProcess();updateLive();save()}
+function buySoft(k){let s=g.soft,c=cost(baseSoft[k],s.u[k],1.7);if(g.cash<c){toast('Not enough cash');return}g.cash-=c;s.u[k]++;if(k==='dev'){s.employees++;s.speed+=1.8;status('Developer: development and testing are automated.')}if(k==='marketing'){s.speed+=.7;status('Growth Marketing: marketing is automated and conversions improve.')}if(k==='infra'){s.value+=1;s.speed+=.2;status('Infrastructure: subscriber value +$1/month and speed +0.2/sec.')}if(k==='onboard'){s.speed+=1.1;status('Onboarding: conversion and subscriptions are automated.')}if(k==='pricing'){s.value+=3;status('Pricing: each subscriber pays $3 more/month.')}toast('Upgrade purchased');buildUpgrades();rebuildProcess();updateLive();save()}
+function addUpgrade(title,level,desc,c,fn){let b=document.createElement('button');b.type='button';b.className='upgrade';b.innerHTML='<b>'+title+' — '+money(c)+'</b><div class="small">Level '+level+'</div><div class="small muted">'+desc+'</div>';b.addEventListener('click',fn);$('upgrades').appendChild(b)}
+function buildUpgrades(){$('upgrades').innerHTML='';if(g.active==='land'){let u=g.land.u;addUpgrade('🔧 Better Tools',u.tools,'+2 tap, +0.5 work/sec.',cost(baseLand.tools,u.tools),()=>buyLand('tools'));addUpgrade('📣 Local Ads',u.ads,'Automates customer finding.',cost(baseLand.ads,u.ads),()=>buyLand('ads'));addUpgrade('👷 Hire Landscaper',u.worker,'Automates service steps.',cost(baseLand.worker,u.worker),()=>buyLand('worker'));addUpgrade('🗓 Scheduling',u.scheduler,'Automates travel/payment.',cost(baseLand.scheduler,u.scheduler),()=>buyLand('scheduler'));addUpgrade('🚚 Add Crew',u.crew,'+2 employees, +2.5 work/sec.',cost(baseLand.crew,u.crew),()=>buyLand('crew'));addUpgrade('⭐ Premium Service',u.premium,'+$30 revenue per job.',cost(baseLand.premium,u.premium),()=>buyLand('premium'))}else{let u=g.soft.u;addUpgrade('🧑‍💻 Developer',u.dev,'Automates development/testing.',cost(baseSoft.dev,u.dev,1.7),()=>buySoft('dev'));addUpgrade('📈 Growth Marketing',u.marketing,'Automates marketing.',cost(baseSoft.marketing,u.marketing,1.7),()=>buySoft('marketing'));addUpgrade('☁️ Infrastructure',u.infra,'+$1 subscriber value.',cost(baseSoft.infra,u.infra,1.7),()=>buySoft('infra'));addUpgrade('🤖 Onboarding',u.onboard,'Automates convert/subscribe.',cost(baseSoft.onboard,u.onboard,1.7),()=>buySoft('onboard'));addUpgrade('💳 Better Pricing',u.pricing,'+$3 monthly value per subscriber.',cost(baseSoft.pricing,u.pricing,1.7),()=>buySoft('pricing'))}}
+function rebuildProcess(){let land=g.active==='land',b=land?g.land:g.soft,steps=land?landSteps:softSteps;$('track').innerHTML='';steps.forEach((s,i)=>{let d=document.createElement('div'),auto=land?landAuto(i):softAuto(i);d.className='step '+(i===b.idx?'active ':'')+(auto?'auto':'');d.innerHTML='<div>'+s.i+'</div><div>'+s.n+'</div>'+(auto?'<div class="muted">AUTO</div>':'');$('track').appendChild(d);if(i<steps.length-1){let ar=document.createElement('span');ar.textContent='→';$('track').appendChild(ar)}})}
+function checkUnlock(){if(!g.soft.unlocked&&g.land.jobs>=8&&landAutomation()>=50&&g.cash>=3000){g.soft.unlocked=true;toast('🔓 Software unlocked');status('Landscaping is automated enough to start another business.');save()}}
+function updateLive(){let land=g.active==='land',b=land?g.land:g.soft,steps=land?landSteps:softSteps,st=steps[b.idx],pct=Math.min(100,b.p/st.w*100);$('cash').textContent=money(g.cash);$('revenue').textContent=money(g.revenue);$('speed').textContent=(g.started?b.speed:0).toFixed(1);$('tap').textContent=b.tap;$('stepLabel').textContent=st.i+' '+st.n;$('pct').textContent=Math.floor(pct)+'%';$('bar').style.width=pct+'%';$('queue').textContent=land?Math.floor(g.land.queue):g.soft.customers;$('jobs').textContent=land?g.land.jobs:g.soft.releases;$('employees').textContent=b.employees;$('automation').textContent=(land?landAutomation():softAutomation())+'%';$('economics').textContent=land?'Full job pays '+money(g.land.value)+'. Current step cost '+money(st.c||0)+'.':(st.flat?'This stage spends '+money(st.flat)+'.':'This stage burns '+money(st.cps||0)+'/sec.');$('softTab').className='tab '+(!g.soft.unlocked?'locked':g.active==='soft'?'active':'');$('softTab').textContent=g.soft.unlocked?'💻 Software':'💻 Software 🔒';$('landTab').className='tab '+(g.active==='land'?'active':'');$('unlock').textContent=g.soft.unlocked?'✅ Software unlocked.':'Need 8 jobs, 50% automation, and $3,000 cash. '+g.land.jobs+'/8 • '+landAutomation()+'% • '+money(g.cash);$('work').textContent=g.started?'⚡ WORK FASTER':'🚀 START LANDSCAPING BUSINESS';if(land){$('business').textContent='GreenLine Landscaping';$('desc').textContent='Short cash-cycle service business.';$('badge').textContent=!g.started?'Not Started':landAutomation()>=80?'Semi-Autonomous':g.land.employees?'Small Team':'Owner-Operator';$('a').textContent='🛻';$('b').textContent=g.land.employees?'👷':'🧑‍🌾';$('c').textContent=g.land.u.crew?'🚚':'🏡'}else{$('business').textContent='Nova Software';$('desc').textContent='Long cash-cycle product business with recurring revenue.';$('badge').textContent=softAutomation()>=70?'Scaling':'Startup';$('a').textContent='💻';$('b').textContent=g.soft.employees?'🧑‍💻':'👨‍💻';$('c').textContent='🏢'}}
+function tick(){if(!g.started){updateLive();return}let dt=.2,l=g.land,ls=landSteps[l.idx];l.p+=l.speed*dt*(landAuto(l.idx)?1.25:1);if(l.p>=ls.w)finishLand();if(g.soft.unlocked){let s=g.soft,ss=softSteps[s.idx];if(ss.cps)g.cash-=ss.cps*dt;s.p+=s.speed*dt*(softAuto(s.idx)?1.25:1);if(s.p>=ss.w)finishSoft();if(s.mrr>0){let inc=s.mrr/(30*24*60*60)*dt;g.cash+=inc;g.revenue+=inc}}checkUnlock();updateLive()}
+document.addEventListener('dblclick',e=>e.preventDefault(),{passive:false});document.addEventListener('gesturestart',e=>e.preventDefault(),{passive:false});document.addEventListener('gesturechange',e=>e.preventDefault(),{passive:false});document.addEventListener('gestureend',e=>e.preventDefault(),{passive:false});
+let touchHandled=false;$('work').addEventListener('pointerdown',e=>{if(e.pointerType==='touch'||e.pointerType==='pen'){e.preventDefault();touchHandled=true;mainAction()}});$('work').addEventListener('pointerup',()=>{setTimeout(()=>touchHandled=false,50)});$('work').addEventListener('click',()=>{if(!touchHandled)mainAction()});$('landTab').addEventListener('click',()=>{g.active='land';buildUpgrades();rebuildProcess();updateLive();save()});$('softTab').addEventListener('click',()=>{if(g.soft.unlocked){g.active='soft';buildUpgrades();rebuildProcess();updateLive();save()}});$('reset').addEventListener('click',()=>{if(confirm('Reset all progress?')){g=fresh();save();location.reload()}});buildUpgrades();rebuildProcess();updateLive();setInterval(tick,200);setInterval(save,3000);
+</script>
+</body>
+</html>
